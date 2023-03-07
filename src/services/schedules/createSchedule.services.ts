@@ -2,8 +2,6 @@ import { IScheduleRequest, IScheduleResponse} from "../../interfaces"
 import { AppDataSource } from "../../data-source"
 import { User, RealEstate, Schedule,  } from "../../entities"
 import { Repository } from "typeorm"
-import { returnScheduleSchema } from "../../schemas/schedules.schemas"
-import { returnRealEstateSchema, returnUserSchema } from "../../schemas"
 
 const createScheduleService = async (scheduleData: IScheduleRequest, userId: number): Promise<IScheduleResponse> => {
   const userRepo: Repository<User> = AppDataSource.getRepository(User)

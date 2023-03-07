@@ -3,8 +3,6 @@ import {
   IUserReturn,
   IUsersReturn,
   IUserUpdate,
-  // iUserRepo,
-  // MoviesPaginationResponse
 } from "./users.interfaces"
 
 import {
@@ -39,8 +37,6 @@ export {
   IUserReturn,
   IUsersReturn,
   IUserUpdate,
-  // iUserRepo,
-  // MoviesPaginationResponse
   ILoginCreate,
   IRealEstateRequest,
   IRealEstateResponse,

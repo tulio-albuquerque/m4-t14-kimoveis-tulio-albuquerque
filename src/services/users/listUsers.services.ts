@@ -5,13 +5,13 @@ import { IUsersReturn } from '../../interfaces/users.interfaces'
 import { returnMultipleUsersSchema } from '../../schemas'
 
 const listUsersService = async (): Promise<IUsersReturn> => {
-  const movieRepo: Repository<User> = AppDataSource.getRepository(User)
+  const userRepo: Repository<User> = AppDataSource.getRepository(User)
 
-  const findMovies = await movieRepo.find()
+  const findUser = await userRepo.find()
 
-  const movies: IUsersReturn = returnMultipleUsersSchema.parse(findMovies)
+  const users: IUsersReturn = returnMultipleUsersSchema.parse(findUser)
 
-  return movies
+  return users
 }
 
 export default listUsersService

@@ -1,11 +1,9 @@
-import { Repository } from 'typeorm'
 import { AppDataSource } from '../../data-source'
 import { RealEstate } from '../../entities'
 import { IRealEstateWithSchedulesResponse } from '../../interfaces/realEstate.interfaces'
 import { returnRealEstateWithSchedulesSchema } from '../../schemas/realEstate.schemas'
 
 const listSchedulesByRealEstateService = async (realEstateId: number): Promise<IRealEstateWithSchedulesResponse> => {
-  const realEstateRepo: Repository<RealEstate> = AppDataSource.getRepository(RealEstate)
 
   const findSchedules = await
     AppDataSource.createQueryBuilder()

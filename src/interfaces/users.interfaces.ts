@@ -8,9 +8,6 @@ type IUserReturn = z.infer<typeof returnUserWithoutPasswordSchema>
 type IUsersReturn = z.infer<typeof returnMultipleUsersSchema>
 
 type IUserUpdate = DeepPartial<User>;
-// type iUserRepo = Repository<User>;
-
-// type UsersPaginationResponse = z.infer<typeof returnMoviesPaginationResponse>
 
 export {
   IUserRequest,
