@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { returnRealEstateOnlySchema } from "./realEstate.schemas"
+import { returnMultipleRealEstateOnlySchema, returnRealEstateOnlySchema } from "./realEstate.schemas"
 
 const createCategorySchema = z.object({
   name: z.string().max(45)
@@ -10,7 +10,7 @@ const returnCategorySchema = createCategorySchema.extend({
 })
 
 const returnCategoryWithRealEstateSchema = returnCategorySchema.extend({
-  realEstate: z.array(returnRealEstateOnlySchema)
+  realEstate: returnMultipleRealEstateOnlySchema
 })
 
 const returnMultipleCategoriesSchema = returnCategorySchema.array()

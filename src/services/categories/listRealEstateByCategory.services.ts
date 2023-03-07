@@ -4,14 +4,18 @@ import { Category } from '../../entities'
 import { ICategoriesWithRealEstateReturn } from '../../interfaces/categories.interfaces'
 
 const listRealEstateByCategory = async (categoryId: number): Promise<ICategoriesWithRealEstateReturn> => {
-  const realEstateRepo: Repository<Category> = AppDataSource.getRepository(Category)
+  const categoryRepo: Repository<Category> = AppDataSource.getRepository(Category)
 
-  const findRealEstate = await realEstateRepo.createQueryBuilder("category")
-    .innerJoinAndSelect("category.realEstate", "real_estate")
-    .where("category.id = :categoryId", {categoryId})
-    .getOne()
+  const category = await categoryRepo.findOne({
+    relations: {
+      realEstate: true
+    },
+    where: {
+      id: categoryId
+    }
+  })
 
-  return findRealEstate!
+  return category!
 }
 
 export default listRealEstateByCategory
