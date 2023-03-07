@@ -16,11 +16,7 @@ const listSchedulesByRealEstateService = async (realEstateId: number): Promise<I
     .where("real_estate.id = :rId", {rId: realEstateId})
     .getOne()
 
-
-  const schedules: IRealEstateWithSchedulesResponse = returnRealEstateWithSchedulesSchema.parse(
-    findSchedules
-  )
-  return schedules
+  return findSchedules!
 }
 
 export default listSchedulesByRealEstateService
